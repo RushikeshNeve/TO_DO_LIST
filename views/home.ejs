@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>
+             <%= title %>
+        </title>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    </head>
+    <body>
+        <h1>
+            <i clas = "fas fa-list"></i>
+            TO DO LIST
+        </h1>
+        <div>
+            <ul>
+                <h2>Items</h2>
+                <h2>Description</h2>
+                <% for(let i of work_items) {%>
+                <li>
+                    <p><%=i.item %></p>
+                    <p><%= i.description %></p>
+                </li>
+                <a href = "/delete-item/?id=<%= i._id %>"><button >delete</button></a>
+                
+                
+                <%} %>
+            </ul>
+        </div>
+        <hr>
+        <form  action = "/create-item" method="POST">
+            <div>
+                <input type="text" name  = "item" id = "item" placeholder="work-itme" required/>
+                <input type="text" name = "desc" id = "desc" placeholder="Description" required/>
+            </div>
+            <button type = "submit" id = "submit">Add</button>
+        </form>
+        <script src = "https://kit.awesome.com/c622d74338.js" crossorigin="anonymous"></script>
+    </body>
+</html>
